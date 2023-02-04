@@ -1,12 +1,20 @@
-import * as React from "react";
+import React, { useState } from "react";
 import api from "../api";
 
 const IndexPage = () => {
-  api();
+  const [responseData, setResponseData] = useState("");
+
   const fetchData = (e) => {
     e.preventDefault();
-
-    api();
+    api
+      .getStockSummary()
+      .then((response) => {
+        setResponseData(response.data);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -14,6 +22,13 @@ const IndexPage = () => {
       <form onSubmit={fetchData}>
         <button type="Submit">Submit</button>
       </form>
+      <p>{responseData ? responseData.price.longName : ""}</p>
+      <p>{responseData ? responseData.price.symbol : ""}</p>
+      <p>{responseData ? responseData.price.regularMarketPrice.fmt : ""}</p>
+      <p>{responseData ? responseData.price.regularMarketChange.fmt : ""}</p>
+      <p>
+        {responseData ? responseData.price.regularMarketChangePercent.fmt : ""}
+      </p>
     </main>
   );
 };
