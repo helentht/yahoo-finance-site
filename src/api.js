@@ -18,5 +18,21 @@ export default {
         symbol: "AMRN",
         region: "US",
       },
+
+      transformResponse: [
+        function (data) {
+          // Do whatever you want to transform the data
+          let json = JSON.parse(data);
+          json = json["price"];
+          const name = json["longName"];
+          const symbol = json["symbol"];
+          const price = json["regularMarketPrice"]["fmt"];
+          const priceChange = json["regularMarketChange"]["fmt"];
+          const percentChange = json["regularMarketChangePercent"]["fmt"];
+          data = { name, symbol, price, priceChange, percentChange };
+
+          return data;
+        },
+      ],
     }),
 };

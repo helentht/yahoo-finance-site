@@ -22,13 +22,11 @@ const IndexPage = () => {
       <form onSubmit={fetchData}>
         <button type="Submit">Submit</button>
       </form>
-      <p>{responseData ? responseData.price.longName : ""}</p>
-      <p>{responseData ? responseData.price.symbol : ""}</p>
-      <p>{responseData ? responseData.price.regularMarketPrice.fmt : ""}</p>
-      <p>{responseData ? responseData.price.regularMarketChange.fmt : ""}</p>
-      <p>
-        {responseData ? responseData.price.regularMarketChangePercent.fmt : ""}
-      </p>
+      <p>{responseData && responseData.name}</p>
+      <p>{responseData && responseData.symbol}</p>
+      <p>{responseData && responseData.price}</p>
+      <p>{responseData && responseData.priceChange}</p>
+      <p>{responseData && responseData.priceChangePercent}</p>
     </main>
   );
 };
