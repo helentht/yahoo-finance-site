@@ -10,12 +10,12 @@ const instance = axios.create({
 });
 
 export default {
-  getStockSummary: () =>
+  getStockSummary: (symbol) =>
     instance({
       method: "GET",
       url: "/stock/v2/get-summary",
       params: {
-        symbol: "AMRN",
+        symbol: symbol.toUpperCase(),
         region: "US",
       },
 
@@ -30,6 +30,7 @@ export default {
           const priceChange = json["regularMarketChange"]["fmt"];
           const percentChange = json["regularMarketChangePercent"]["fmt"];
           data = { name, symbol, price, priceChange, percentChange };
+          console.log(data);
 
           return data;
         },
