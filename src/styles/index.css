@@ -1,0 +1,69 @@
+:root {
+  font-family: Yahoo Sans Finance, Helvetica Neue, Arial, sans-serif;
+}
+
+header {
+  background-color: #f5ba13;
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+form {
+  margin: 10px auto 20px 0;
+}
+
+input {
+  margin: 10px;
+  width: 30%;
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+}
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-content {
+  margin: auto;
+  width: 60%;
+}
+
+.companyName {
+  font-size: 18px;
+}
+
+.description {
+  line-height: 1.5;
+}
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.priceChange {
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 8px;
+  display: inline-block;
+}
+
+.negative {
+  color: #bd1414;
+}
+
+.positive {
+  color: #007560;
+}
